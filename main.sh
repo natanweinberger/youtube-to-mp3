@@ -39,10 +39,19 @@ function main() {
     artist=$2
     title=$3
 
+    echo "Dowloading $url"
     download $url $TARGET_DIR
+
+    echo "Converting to mp3"
     convert_to_audio "$TARGET_DIR"
+
+    echo "Setting metadata tags"
     set_metadata "$(find "$TARGET_DIR" -type f -name *.mp3)" "$artist" "$title"
+
+    echo "Moving mp3 to target destinatation"
     mv $TARGET_DIR/*.mp3 $VOLUME_DIR
+
+    echo "Done!"
 }
 
 main "$1" "$2" "$3"
