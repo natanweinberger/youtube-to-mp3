@@ -21,7 +21,7 @@ function convert_to_audio() {
     target_dir=$1
     filepath_mp4=$(find "$target_dir" -type f -name *.mp4)
     filepath_mp3=$(echo "$filepath_mp4" | sed 's/.mp4/.mp3/')
-    ffmpeg -i "$filepath_mp4" "$filepath_mp3" -loglevel warning -stats
+    pv "$filepath_mp4" | ffmpeg -i pipe:0 "$filepath_mp3" -loglevel warning
 
     [[ -f "$filepath_mp4" ]] && rm "$filepath_mp4"
 }
