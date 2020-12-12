@@ -7,15 +7,23 @@ By setting the environment variable `$LOCAL_MUSIC_DIR`, the tagged MP3s will out
 
 # Quick start
 
-1. Clone this repo.
+1. Clone this repo
 
 ```bash
-$ git clone https://github.com/natanweinberger/youtube-to-mp3
+~ $ git clone https://github.com/natanweinberger/youtube-to-mp3
+~ $ cd youtube-to-mp3
 ```
 
-2. In your `.bashrc`/`.zshrc`, set `LOCAL_MUSIC_DIR` to the directory where your music app looks for local files.
+2. Build the Docker image
 
-Optionally, you can also add the repo to your `PATH` to be able to run it from anywhere.
+```bash
+~/youtube-to-mp3 $ make build
+```
+
+3. In your `.bashrc`/`.zshrc`:
+
+- Set `LOCAL_MUSIC_DIR` to the directory where your music app looks for local files
+- Optionally, you can also add the repo to your `PATH` to be able to run it from anywhere
 
 ```bash
 # ~/.zshrc
@@ -23,10 +31,10 @@ export LOCAL_MUSIC_DIR=~/Documents/Spotify
 export PATH=$PATH:~/.../youtube-to-mp3
 ```
 
-3. Run `ytmp3`, which will prompt you for the URL of the video and the artist and song metadata.
+4. Run `ytmp3`, which will prompt you for the URL of the video and the artist and song metadata
 
 ```bash
-$ ytmp3
+~ $ ytmp3
 URL: https://www.youtube.com/watch?v=DY-7adE4EVM
 Artist: Parcels
 Title: Live at Reeperbahn Festival (2018)
