@@ -1,6 +1,6 @@
 function main() {
-    [[ -z "$SPOTIFY_DIR" ]] && echo "\$SPOTIFY_DIR is not set in your environment." && return;
-    docker run --rm -it -v $SPOTIFY_DIR:/home youtube-to-mp3 bash main.sh $@
+    [[ -z "$LOCAL_MUSIC_DIR" ]] && echo "\$LOCAL_MUSIC_DIR is not set in your environment." && return;
+    docker run --rm -it -v $LOCAL_MUSIC_DIR:/home youtube-to-mp3 bash main.sh $@
 }
 
 main $@
