@@ -73,7 +73,7 @@ function main() {
 
     [[ -z "$url" ]] && get_metadata_input
 
-    echo "Dowloading $url"
+    echo "Downloading $url"
     download $url $PROCESSING_DIR
 
     echo "Converting to mp3"
