@@ -1,2 +1,2 @@
 mutagen==1.45.1
-pytube==10.0.0
+git+https://github.com/nficano/pytube@v10.1.0
