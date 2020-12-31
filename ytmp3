@@ -1,6 +1,6 @@
 function main() {
-    [[ -z "$LOCAL_MUSIC_DIR" ]] && echo "\$LOCAL_MUSIC_DIR is not set in your environment." && return;
-    docker run --rm -it -v $LOCAL_MUSIC_DIR:/home youtube-to-mp3 bash main.sh $@
+    [[ -z "$YTMP3_OUTPUT_DIR" ]] && echo "\$YTMP3_OUTPUT_DIR is not set in your environment." && return;
+    docker run --rm -it -v $YTMP3_OUTPUT_DIR:/home youtube-to-mp3 bash main.sh $@
 }
 
 main $@
