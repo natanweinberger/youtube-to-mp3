@@ -14,11 +14,15 @@ function download() {
     url=$1
     target_dir=$2
 
-    sources=$(pytube $url --list)
+    # Change pytube CLI to local pytube source cli.py, fixes age-restricted content bug
+
+    # sources=$(pytube $url --list)
+    sources=$(python /var/src/pytube/pytube/cli.py $url --list)
     filtered_sources=$(echo "$sources" | grep audio | grep mp4)
     itag=$(get_itag "$filtered_sources")
 
-    pytube $url --itag $itag --target $target_dir
+    # pytube $url --itag $itag --target $target_dir
+    python /var/src/pytube/pytube/cli.py $url --itag $itag --target $target_dir
 }
 
 
@@ -72,6 +76,10 @@ function main() {
     title=$3
 
     [[ -z "$url" ]] && get_metadata_input
+
+    echo $url
+    echo $artist
+    echo $title
 
     echo "Downloading $url"
     download $url $PROCESSING_DIR
